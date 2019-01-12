@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class InputProgram {
     public static void main(String[] args) {
         String o1 = null;
         String o2 = null;
