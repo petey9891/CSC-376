@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/*
+    Andrew Peterson - CSC 376
+ */
+
 public class InputProgram {
     public static void main(String[] args) {
         String o1 = null;
