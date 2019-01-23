@@ -14,31 +14,13 @@ public class Messenger {
             System.out.println("\tServer -l <port number> \n\t Client <port number> [<server address>]");
             return;
         } else {
-
+            if (args[0].equals("-l")) {
+                // run server
+            } else {
+                // run client
+            }
         }
 
-
-        boolean runServer = false;
-        int port = -1;
-        String server = "localhost";
-
-        for (String arg : args) {
-            if (arg.equals("-l"))
-                runServer = true;
-            if (arg.matches("(\\d{4})"))
-                port = Integer.parseInt(arg);
-            if (arg.matches("(\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}[.]\\d{1,3})"))
-                server = arg;
-        }
-
-        if(runServer) {
-            System.out.println("Running as server:");
-            server(port);
-        }
-        else{
-            System.out.println("Running as client:");
-            client(port, server);
-        }
     }
 
     private static void server(int port) {
@@ -50,7 +32,6 @@ public class Messenger {
             DataInputStream input = new DataInputStream(client_socket.getInputStream());
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
             String clientMessage = "";
             String serverMessage = "";
             while ((clientMessage = input.readUTF()) != null || (serverMessage = reader.readLine()) != null) {
@@ -105,3 +86,17 @@ public class Messenger {
         }
     }
 }
+
+
+//    boolean runServer = false;
+//    int port = -1;
+//    String server = "localhost";
+//
+//            for (String arg : args) {
+//                    if (arg.equals("-l"))
+//                    runServer = true;
+//                    if (arg.matches("(\\d{4})"))
+//                    port = Integer.parseInt(arg);
+//                    if (arg.matches("(\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}[.]\\d{1,3})"))
+//                    server = arg;
+//                    }
