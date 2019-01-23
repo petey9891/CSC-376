@@ -101,7 +101,7 @@ class AMessenger {
             client_socket.close();
             System.exit(0);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+//            e.printStackTrace();
         }
     }
 
