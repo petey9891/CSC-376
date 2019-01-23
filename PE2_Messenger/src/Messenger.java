@@ -1,10 +1,6 @@
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.io.DataOutputStream;
-import java.io.DataInputStream;
-import java.io.EOFException;
 import java.util.Scanner;
 
 public class Messenger {
@@ -14,89 +10,159 @@ public class Messenger {
             System.out.println("\tServer -l <port number> \n\t Client <port number> [<server address>]");
             return;
         } else {
-            if (args[0].equals("-l")) {
-                // run server
-            } else {
-                // run client
+            try {
+
+                Thread readerThread;
+                Thread writerThread;
+                if (args[0].equals("-l")) {
+                    // run server
+                    Server s = new Server(Integer.parseInt(args[1]));
+                    readerThread = new Thread(() -> s.read());
+                    writerThread = new Thread(() -> s.write());
+                } else {
+                    Client c = new Client(Integer.parseInt(args[0]), "localhost");
+                    readerThread = new Thread(() -> c.read());
+                    writerThread = new Thread(() -> c.write());
+                }
+                readerThread.start();
+                writerThread.start();
+                readerThread.interrupt();
+                writerThread.interrupt();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-
-    }
-
-    private static void server(int port) {
-        try {
-            ServerSocket server_socket = new ServerSocket(port);
-            Socket client_socket = server_socket.accept();
-
-            DataOutputStream output = new DataOutputStream(client_socket.getOutputStream());
-            DataInputStream input = new DataInputStream(client_socket.getInputStream());
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String clientMessage = "";
-            String serverMessage = "";
-            while ((clientMessage = input.readUTF()) != null || (serverMessage = reader.readLine()) != null) {
-                if (clientMessage != null)
-                    System.out.println(clientMessage);
-                else
-                    output.writeUTF(serverMessage);
-            }
-
-////            while (input.available() > 0) {
-////                System.out.println()
-////            }
-//
-//            String clientMessage = input.readUTF();
-//            System.out.println(clientMessage);
-//            Scanner in = new Scanner(System.in);
-//            while (in.hasNextLine()) {
-//                output.writeUTF(in.nextLine());
-//            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private static void client(int port, String server) {
-        try {
-            Socket client_socket = new Socket(server, port );
-            DataOutputStream output = new DataOutputStream(client_socket.getOutputStream());
-            BufferedReader input = new BufferedReader(new InputStreamReader(client_socket.getInputStream()));
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-            String clientMessage = "";
-            while ((clientMessage = reader.readLine()) != null && clientMessage.length() > 0) {
-                output.writeUTF(clientMessage);
-            }
-//
-//            while (input.available() > 0) {
-//                System.out.println(input.readUTF());
-//            }
-//
-//            String serverMessage = input.readUTF();
-//            System.out.println(serverMessage);
-
-            client_socket.close();
-
-        } catch (EOFException eofx) {
-            System.out.println("EOF encountered; other side shut down");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
     }
 }
 
 
-//    boolean runServer = false;
-//    int port = -1;
-//    String server = "localhost";
-//
-//            for (String arg : args) {
-//                    if (arg.equals("-l"))
-//                    runServer = true;
-//                    if (arg.matches("(\\d{4})"))
-//                    port = Integer.parseInt(arg);
-//                    if (arg.matches("(\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}[.]\\d{1,3})"))
-//                    server = arg;
-//                    }
+class Server {
+    private ServerSocket server_socket;
+    private Socket client_socket;
+    private DataOutputStream output;
+    private DataInputStream input;
+    private BufferedReader reader;
+
+    Server(int port) {
+        try {
+            server_socket = new ServerSocket(port);
+            client_socket = server_socket.accept();
+            output = new DataOutputStream(client_socket.getOutputStream());
+            input = new DataInputStream(client_socket.getInputStream());
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void read() {
+        try {
+            while(client_socket.isConnected() && !client_socket.isClosed()) {
+                String message;
+                if ((message = input.readUTF()) != null && message.length() > 0) {
+                    System.out.println(message);
+                } else {
+                    input.close();
+                    close();
+                }
+            }
+            close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void write() {
+        try {
+            while(client_socket.isConnected() && !client_socket.isClosed()) {
+                String message;
+                if((message = reader.readLine()) != null && message.length() > 0) {
+                    output.writeUTF(message);
+                } else {
+                    reader.close();
+                    close();
+                }
+            }
+            close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void close() {
+        System.out.println("here");
+        try {
+            server_socket.close();
+            client_socket.shutdownOutput();
+            client_socket.close();
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+class Client {
+    private Socket client_socket;
+    private DataOutputStream output;
+    private DataInputStream input;
+    private BufferedReader reader;
+
+    Client(int port, String addr) {
+        try {
+            client_socket = new Socket(addr, port);
+            output = new DataOutputStream(client_socket.getOutputStream());
+            input = new DataInputStream(client_socket.getInputStream());
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        } catch (EOFException eofx) {
+            System.out.println("EOF encountered; other sid e shut down");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void read() {
+        try {
+            while(client_socket.isConnected() && !client_socket.isClosed()) {
+                String message;
+                if ((message = input.readUTF()) != null && message.length() > 0) {
+                    System.out.println(message);
+                } else {
+                    input.close();
+                    close();
+                }
+            }
+            close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void write() {
+        try {
+            while(client_socket.isConnected() && !client_socket.isClosed()) {
+                String message;
+                if((message = reader.readLine()) != null && message.length() > 0) {
+                    output.writeUTF(message);
+                } else {
+                    reader.close();
+                    close();
+                }
+            }
+            close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void close() {
+        System.out.println("here");
+        try {
+            client_socket.shutdownOutput();
+            client_socket.close();
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
