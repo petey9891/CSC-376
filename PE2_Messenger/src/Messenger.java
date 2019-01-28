@@ -1,9 +1,12 @@
-import com.sun.security.ntlm.Server;
+/*
+    Andrew Peterson
+    CSC 376
+    1/28/2019
+ */
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Messenger {
     public static void main(String[] args) {
@@ -100,159 +103,6 @@ class AMessenger {
             client_socket.shutdownOutput();
             client_socket.close();
             System.exit(0);
-        } catch (IOException e) {
-//            e.printStackTrace();
-        }
+        } catch (IOException e) {}
     }
-
 }
-
-//class Server {
-//    private ServerSocket server_socket;
-//    private Socket client_socket;
-//    private DataOutputStream output;
-//    private DataInputStream input;
-//    private BufferedReader reader;
-//    Thread readerThread;
-//    Thread writerThread;
-//
-//    Server(int port) {
-//        try {
-//            server_socket = new ServerSocket(port);
-//            client_socket = server_socket.accept();
-//            output = new DataOutputStream(client_socket.getOutputStream());
-//            input = new DataInputStream(client_socket.getInputStream());
-//            reader = new BufferedReader(new InputStreamReader(System.in));
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public void read() {
-//        try {
-//            while(client_socket.isConnected() && !client_socket.isClosed()) {
-//                try {
-//                    System.out.println(input.readUTF());
-//                } catch (EOFException eofx) {
-//                    input.close();
-//                    System.out.println("server reader closed");
-//                    close();
-//                }
-//            }
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public void write() {
-//        try {
-//            while(client_socket.isConnected() && !client_socket.isClosed()) {
-//                String message;
-//                if((message = reader.readLine()) != null && message.length() > 0) {
-//                    output.writeUTF(message);
-//                } else {
-//                    reader.close();
-//                    System.out.println("server writer closed");
-//                    close();
-//                }
-//            }
-//            close();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public void run() {
-//        readerThread = new Thread(() -> read());
-//        writerThread = new Thread(() -> write());
-//        readerThread.start();
-//        writerThread.start();
-//    }
-//
-//    private void close() {
-//        try {
-//            server_socket.close();
-//            client_socket.shutdownOutput();
-//            client_socket.close();
-//            System.exit(0);
-//            readerThread.interrupt();
-//            writerThread.interrupt();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//}
-//
-//class Client {
-//    private Socket client_socket;
-//    private DataOutputStream output;
-//    private DataInputStream input;
-//    private BufferedReader reader;
-//    Thread readerThread;
-//    Thread writerThread;
-//
-//    Client(int port, String addr) {
-//        try {
-//            client_socket = new Socket(addr, port);
-//            output = new DataOutputStream(client_socket.getOutputStream());
-//            input = new DataInputStream(client_socket.getInputStream());
-//            reader = new BufferedReader(new InputStreamReader(System.in));
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public void read() {
-//        try {
-//            while(client_socket.isConnected() && !client_socket.isClosed()) {
-//                try {
-//                    System.out.println(input.readUTF());
-//                } catch (EOFException eofx) {
-//                    input.close();
-//                    System.out.println("client reader closed");
-//                    close();
-//
-//                }
-//            }
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public void write() {
-//        try {
-//            while(client_socket.isConnected() && !client_socket.isClosed()) {
-//                String message;
-//                if((message = reader.readLine()) != null && message.length() > 0) {
-//                    output.writeUTF(message);
-//                } else {
-//                    reader.close();
-//                    System.out.println("client writer closed");
-//                    close();
-//                }
-//            }
-//            close();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public void run() {
-//        System.out.println("Here");
-//        readerThread = new Thread(() -> read());
-//        writerThread = new Thread(() -> write());
-//        readerThread.start();
-//        writerThread.start();
-//    }
-//
-//    private void close() {
-//        try {
-//            client_socket.shutdownOutput();
-//            client_socket.close();
-//            readerThread.interrupt();
-//            writerThread.interrupt();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//}
