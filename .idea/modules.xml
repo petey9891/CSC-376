@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/CSC-376.iml" filepath="$PROJECT_DIR$/.idea/CSC-376.iml" />
       <module fileurl="file://$PROJECT_DIR$/PE1_Programming_Input/PE1_Programming_Input.iml" filepath="$PROJECT_DIR$/PE1_Programming_Input/PE1_Programming_Input.iml" />
       <module fileurl="file://$PROJECT_DIR$/PE2_Messenger/PE2_Messenger.iml" filepath="$PROJECT_DIR$/PE2_Messenger/PE2_Messenger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PE3_Chat/PE3_Chat.iml" filepath="$PROJECT_DIR$/PE3_Chat/PE3_Chat.iml" />
     </modules>
   </component>
 </project>
