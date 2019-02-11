@@ -1,6 +1,11 @@
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * Andrew Peterson
+ * CSC 376
+ */
+
 public class ClientConnection {
     private String name;
     private Socket sock;

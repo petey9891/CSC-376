@@ -3,6 +3,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/**
+ * Andrew Peterson
+ * CSC 376
+ */
+
 public class ChatServer {
     private ServerSocket serverSocket;
     private ArrayList<ClientConnection> clientConnections;
