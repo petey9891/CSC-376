@@ -1,34 +1,39 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Messenger {
-    private boolean isServer;
+class Messenger {
     private int port;
-    String server_address;
-    Socket sock;
+    private Socket sock;
 
-    Messenger(boolean isServer, int port) {
-        this.isServer = isServer;
+    Messenger(int port) {
         this.port = port;
-        server_address = "localhost";
     }
 
-    public void close() throws IOException {
-        sock.close();
+    void close() {
+        try {
+            sock.close();
+        } catch (IOException e) {
+            // ignore
+        }
     }
 
-    public DataInputStream getInputStream() throws IOException {
+//    BufferedReader getInputStream() throws IOException {
+//        return new BufferedReader(new InputStreamReader(sock.getInputStream()));
+//    }
+
+    DataInputStream getInputStream() throws IOException {
         return new DataInputStream(sock.getInputStream());
     }
 
-    public DataOutputStream getOutputStream() throws IOException {
+    DataOutputStream getOutputStream() throws IOException {
         return new DataOutputStream(sock.getOutputStream());
     }
+//    PrintWriter getOutputStream() throws IOException {
+//        return new PrintWriter(sock.getOutputStream(), true);
+//    }
 
-    public void startServer() {
+    void startServer() {
         try {
             ServerSocket server_socket = new ServerSocket(port);
             sock = server_socket.accept();
@@ -39,12 +44,43 @@ public class Messenger {
         }
     }
 
-    public void startClient() {
+    void startClient() {
         try {
-            sock = new Socket(server_address, port);
+            sock = new Socket("localhost", port);
         } catch (Exception e) {
             System.err.println("Failed to startup client: " + e.getMessage());
             System.exit(1);
         }
     }
+
+    void printMessage() {
+        System.out.println("Enter an option ('m', 'f', 'x'):\n" +
+                "\t(M)essage (send)\n" +
+                "\t(F)ile (request)\n" +
+                "\te(X)it");
+    }
+
+//    void serviceRequest(String fileName) throws IOException {
+//        File file = new File(fileName);
+//        PrintWriter output = getOutputStream();
+//        if (!file.exists() || !file.canRead()) {
+//            return;
+//        }
+//        BufferedReader reader = new BufferedReader(new FileReader(file));
+//        String line;
+//        while ((line = reader.readLine()) != null) {
+//            System.out.println(line);
+//            output.println(line);
+//        }
+//        reader.close();
+//    }
+//
+//    void writeFile(String fileName) throws IOException {
+//        BufferedReader input = getInputStream();
+//        PrintWriter file = new PrintWriter(new BufferedWriter( new FileWriter(fileName)));
+//        String line;
+//        while ((line = input.readLine()) != null) {
+//            file.println(line);
+//        }
+//    }
 }
