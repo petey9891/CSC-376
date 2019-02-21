@@ -4,39 +4,28 @@ import java.net.Socket;
 
 class Messenger {
     private int port;
+    boolean isServer;
     private Socket sock;
+    private Socket fileSock;
+    private ServerSocket server_socket;
 
-    Messenger(int port) {
-        this.port = port;
-    }
-
-    void close() {
-        try {
-            sock.close();
-        } catch (IOException e) {
-            // ignore
-        }
-    }
-
-//    BufferedReader getInputStream() throws IOException {
-//        return new BufferedReader(new InputStreamReader(sock.getInputStream()));
-//    }
-
-    DataInputStream getInputStream() throws IOException {
-        return new DataInputStream(sock.getInputStream());
-    }
-
-    DataOutputStream getOutputStream() throws IOException {
-        return new DataOutputStream(sock.getOutputStream());
-    }
-//    PrintWriter getOutputStream() throws IOException {
-//        return new PrintWriter(sock.getOutputStream(), true);
-//    }
+    Messenger(int port, boolean isServer) { this.port = port; this.isServer = isServer; }
 
     void startServer() {
         try {
-            ServerSocket server_socket = new ServerSocket(port);
+            ServerSocket file_server_socket = new ServerSocket(8083);
+            Thread accept = new Thread(() -> {
+                try {
+                    while (true) {
+                        fileSock = file_server_socket.accept();
+                    }
+                } catch (IOException e) {}
+            });
+            accept.start();
+
+            server_socket = new ServerSocket(port);
             sock = server_socket.accept();
+
             server_socket.close();
         } catch (Exception e) {
             System.err.println("Failed to startup server: " + e.getMessage());
@@ -46,11 +35,91 @@ class Messenger {
 
     void startClient() {
         try {
+            server_socket = new ServerSocket(8082);
+            Thread accept = new Thread(() -> {
+                try {
+                    while (true) {
+                        fileSock = server_socket.accept();
+                    }
+                } catch (IOException e) {}
+            });
+            accept.start();
+
             sock = new Socket("localhost", port);
+
         } catch (Exception e) {
             System.err.println("Failed to startup client: " + e.getMessage());
             System.exit(1);
         }
+    }
+
+    void connectToFileServer() {
+        try {
+            if (isServer) {
+                fileSock = new Socket("localhost", 8082);
+            } else {
+                fileSock = new Socket("localhost", 8083);
+            }
+        } catch (Exception e) {
+            System.err.println(("Failed to connect ot file server: " + e.getMessage()));
+            System.exit(1);
+        }
+    }
+
+    void closeFileSocket() throws IOException {
+        fileSock.close();
+    }
+
+    void close() throws IOException {
+        sock.close();
+    }
+
+
+    BufferedReader getInputStream() throws IOException {
+        return new BufferedReader(new InputStreamReader(sock.getInputStream()));
+    }
+
+    PrintWriter getOutputStream() throws IOException {
+        return new PrintWriter(sock.getOutputStream(), true);
+    }
+
+    DataInputStream getFileInputStream() throws IOException {
+        return new DataInputStream(fileSock.getInputStream());
+    }
+
+    DataOutputStream getFileOutputStream() throws IOException {
+        return new DataOutputStream(fileSock.getOutputStream());
+    }
+
+    void serviceRequest() throws IOException {
+        connectToFileServer();
+        DataInputStream input = getFileInputStream();
+        DataOutputStream output = getFileOutputStream();
+
+        String file_name = input.readUTF();
+
+        File file = new File( file_name );
+        FileInputStream file_input = new FileInputStream(file);
+
+        byte[] file_buffer = new byte[1500];
+        int number_read;
+        while( (number_read = file_input.read( file_buffer )) != -1 )
+            output.write( file_buffer, 0, number_read );
+        closeFileSocket();
+    }
+
+    void getFile(String file_name) throws IOException {
+        DataInputStream input = getFileInputStream();
+        DataOutputStream output = getFileOutputStream();
+        System.err.println(file_name);
+        output.writeUTF( file_name );
+        FileOutputStream file_out = new FileOutputStream( file_name );
+
+        byte[] buffer = new byte[1500];
+        int number_read;
+        while( (number_read = input.read( buffer)) != -1 )
+            file_out.write( buffer, 0, number_read );
+        file_out.close();
     }
 
     void printMessage() {
@@ -59,28 +128,4 @@ class Messenger {
                 "\t(F)ile (request)\n" +
                 "\te(X)it");
     }
-
-//    void serviceRequest(String fileName) throws IOException {
-//        File file = new File(fileName);
-//        PrintWriter output = getOutputStream();
-//        if (!file.exists() || !file.canRead()) {
-//            return;
-//        }
-//        BufferedReader reader = new BufferedReader(new FileReader(file));
-//        String line;
-//        while ((line = reader.readLine()) != null) {
-//            System.out.println(line);
-//            output.println(line);
-//        }
-//        reader.close();
-//    }
-//
-//    void writeFile(String fileName) throws IOException {
-//        BufferedReader input = getInputStream();
-//        PrintWriter file = new PrintWriter(new BufferedWriter( new FileWriter(fileName)));
-//        String line;
-//        while ((line = input.readLine()) != null) {
-//            file.println(line);
-//        }
-//    }
 }
