@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="995d7e15-2f79-4607-9b01-3da20be0e070" name="Default" comment="working on PE4">
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/client/blah.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/client/one-liners.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PE4_Messenger_With_Files/client/one-liners.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/client/wee.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PE4_Messenger_With_Files/client/wee.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/server/one-liners.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/server/wee.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWIthFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.47014362">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="426">
+                  <caret line="45" column="60" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="60" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>System.out</find>
+      <find>e.print</find>
+      <find>e.get</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/PE3_Chat/src/ChatClient.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/PE1_Programming_Input/src/InputProgram.java" />
+        <option value="$PROJECT_DIR$/PE2_Messenger/src/Messenger.java" />
+        <option value="$PROJECT_DIR$/PE3_Chat/src/Messenger.java" />
+        <option value="$PROJECT_DIR$/PE3_Chat/src/Client.java" />
+        <option value="$PROJECT_DIR$/PE3_Chat/src/Server.java" />
+        <option value="$PROJECT_DIR$/PE3_Chat/src/ChatClient.java" />
+        <option value="$PROJECT_DIR$/PE3_Chat/src/ChatServer.java" />
+        <option value="$PROJECT_DIR$/PE3_Chat/src/ClientConnection.java" />
+        <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/server/one-liners.txt" />
+        <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/server/wee.txt" />
+        <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java" />
+        <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-112" />
+    <option name="y" value="-22" />
+    <option name="width" value="2766" />
+    <option name="height" value="1854" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name="PE2_Messenger" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name="PE2_Messenger" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name="PE2_Messenger" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Messenger.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name="PE4_Messenger_With_Files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name="PE4_Messenger_With_Files" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name="PE4_Messenger_With_Files" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550726213208" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PE4_Messenger_With_Files/server" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\16ape\Documents\CSC 376\CSC-376\PE4_Messenger_With_Files\client" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.SeverFiles">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatClient1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ChatClient" />
+      <module name="PE3_Chat" />
+      <option name="PROGRAM_PARAMETERS" value="8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatClient2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ChatClient" />
+      <module name="PE3_Chat" />
+      <option name="PROGRAM_PARAMETERS" value="8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatServer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ChatServer" />
+      <module name="PE3_Chat" />
+      <option name="PROGRAM_PARAMETERS" value="8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Messenger" />
+      <module name="PE2_Messenger" />
+      <option name="PROGRAM_PARAMETERS" value="8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientFiles" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MessengerWithFiles" />
+      <module name="PE4_Messenger_With_Files" />
+      <option name="PROGRAM_PARAMETERS" value="-l 6002 -p 6001" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PE4_Messenger_With_Files/client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="InputProgram" />
+      <module name="PE1_Programming_Input" />
+      <option name="PROGRAM_PARAMETERS" value="-h" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Messenger" />
+      <module name="PE2_Messenger" />
+      <option name="PROGRAM_PARAMETERS" value="-l 8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeverFiles" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MessengerWithFiles" />
+      <module name="PE4_Messenger_With_Files" />
+      <option name="PROGRAM_PARAMETERS" value="-l 6001" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PE4_Messenger_With_Files/server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.ChatServer" />
+      <item itemvalue="Application.ChatClient1" />
+      <item itemvalue="Application.SeverFiles" />
+      <item itemvalue="Application.ClientFiles" />
+      <item itemvalue="Application.ChatClient2" />
+      <item itemvalue="Application.InputProgram" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.InputProgram" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="995d7e15-2f79-4607-9b01-3da20be0e070" name="Default" comment="" />
+      <created>1547314739001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547314739001</updated>
+      <workItem from="1547662488024" duration="3456000" />
+      <workItem from="1548215156915" duration="421000" />
+      <workItem from="1548271779464" duration="4281000" />
+      <workItem from="1548648535073" duration="510000" />
+      <workItem from="1549468377565" duration="13904000" />
+      <workItem from="1549900861647" duration="1309000" />
+      <workItem from="1550684505348" duration="19858000" />
+      <workItem from="1550768039680" duration="128000" />
+    </task>
+    <task id="LOCAL-00001" summary="changed file name">
+      <created>1547316273895</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547316273895</updated>
+    </task>
+    <task id="LOCAL-00002" summary="changed beginning structure">
+      <created>1548215229927</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1548215229927</updated>
+    </task>
+    <task id="LOCAL-00003" summary="all tests pass">
+      <created>1548276436331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1548276436331</updated>
+    </task>
+    <task id="LOCAL-00004" summary="finished PE2">
+      <created>1548648917062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1548648917063</updated>
+    </task>
+    <task id="LOCAL-00005" summary="semi working version of PE3">
+      <created>1549492589271</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1549492589271</updated>
+    </task>
+    <task id="LOCAL-00006" summary="finished PE3; added name">
+      <created>1549901098351</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1549901098351</updated>
+    </task>
+    <task id="LOCAL-00007" summary="working on PE4">
+      <created>1550698065468</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1550698065469</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="43867000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32955405" />
+      <window_info id="Structure" order="1" weight="0.24904214" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.19638649" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32980132" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32980132" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.16556291" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32980132" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32955405" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed file name" />
+    <MESSAGE value="changed beginning structure" />
+    <MESSAGE value="all tests pass" />
+    <MESSAGE value="finished PE2" />
+    <MESSAGE value="semi working version of PE3" />
+    <MESSAGE value="finished PE3; added name" />
+    <MESSAGE value="working on PE4" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on PE4" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PE1_Programming_Input/src/InputProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/Messenger.java" />
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/Client.java" />
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/Server.java" />
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/ChatClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/ChatServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/ClientConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/server/one-liners.txt" />
+    <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/client/wee.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE2_Messenger/src/Messenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-850">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="45" column="60" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>scala-sdk-2.12.4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CSC-376</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

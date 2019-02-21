@@ -9,7 +9,10 @@ class Messenger {
     private Socket fileSock;
     private ServerSocket server_socket;
 
-    Messenger(int port, boolean isServer) { this.port = port; this.isServer = isServer; }
+    Messenger(int port, boolean isServer) {
+        this.port = port;
+        this.isServer = isServer;
+    }
 
     void startServer() {
         try {
@@ -19,7 +22,10 @@ class Messenger {
                     while (true) {
                         fileSock = file_server_socket.accept();
                     }
-                } catch (IOException e) {}
+                } catch (Exception e) {
+                    System.err.println("Failed to startup server - file server: " + e.getMessage());
+                    System.exit(1);
+                }
             });
             accept.start();
 
@@ -35,16 +41,18 @@ class Messenger {
 
     void startClient() {
         try {
-            server_socket = new ServerSocket(8082);
+            ServerSocket file_server_socket = new ServerSocket(8082);
             Thread accept = new Thread(() -> {
                 try {
                     while (true) {
-                        fileSock = server_socket.accept();
+                        fileSock = file_server_socket.accept();
                     }
-                } catch (IOException e) {}
+                } catch (Exception e) {
+                    System.err.println("Failed to startup client - file server: " + e.getMessage());
+                    System.exit(1);
+                }
             });
             accept.start();
-
             sock = new Socket("localhost", port);
 
         } catch (Exception e) {
@@ -56,8 +64,10 @@ class Messenger {
     void connectToFileServer() {
         try {
             if (isServer) {
+                System.err.println("is indeed a server");
                 fileSock = new Socket("localhost", 8082);
             } else {
+                System.err.println("not a server");
                 fileSock = new Socket("localhost", 8083);
             }
         } catch (Exception e) {
@@ -99,6 +109,11 @@ class Messenger {
         String file_name = input.readUTF();
 
         File file = new File( file_name );
+        if (!file.exists() || !file.canRead()) {
+            closeFileSocket();
+            return;
+        }
+
         FileInputStream file_input = new FileInputStream(file);
 
         byte[] file_buffer = new byte[1500];
@@ -109,17 +124,16 @@ class Messenger {
     }
 
     void getFile(String file_name) throws IOException {
-        DataInputStream input = getFileInputStream();
-        DataOutputStream output = getFileOutputStream();
-        System.err.println(file_name);
-        output.writeUTF( file_name );
-        FileOutputStream file_out = new FileOutputStream( file_name );
+            DataInputStream input = getFileInputStream();
+            DataOutputStream output = getFileOutputStream();
+            output.writeUTF( file_name );
+            FileOutputStream file_out = new FileOutputStream( file_name );
 
-        byte[] buffer = new byte[1500];
-        int number_read;
-        while( (number_read = input.read( buffer)) != -1 )
-            file_out.write( buffer, 0, number_read );
-        file_out.close();
+            byte[] buffer = new byte[1500];
+            int number_read;
+            while( (number_read = input.read( buffer)) != -1 )
+                file_out.write( buffer, 0, number_read );
+            file_out.close();
     }
 
     void printMessage() {

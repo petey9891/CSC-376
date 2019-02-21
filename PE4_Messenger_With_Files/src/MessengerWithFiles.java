@@ -3,18 +3,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-public class MessengerWIthFiles {
+public class MessengerWithFiles {
     public static void main(String[] args) {
-        if (args.length > 2) {
+        if (args.length > 4) {
             System.out.println("Usage:");
             System.out.println("\tServer -l <port number>\n\tClient <port number>");
         } else {
             Messenger m;
-            if (args[0].equals("-l")) {
+            if (args.length < 4 && args[0].equals("-l")) {
                 m = new Messenger(Integer.parseInt(args[1]), true);
                 m.startServer();
             } else {
-                m = new Messenger(Integer.parseInt(args[0]), false);
+                m = new Messenger(Integer.parseInt(args[3]), false);
                 m.startClient();
             }
 
