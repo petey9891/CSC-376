@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/PE2_Messenger/PE2_Messenger.iml" filepath="$PROJECT_DIR$/PE2_Messenger/PE2_Messenger.iml" />
       <module fileurl="file://$PROJECT_DIR$/PE3_Chat/PE3_Chat.iml" filepath="$PROJECT_DIR$/PE3_Chat/PE3_Chat.iml" />
       <module fileurl="file://$PROJECT_DIR$/PE4_Messenger_With_Files/PE4_Messenger_With_Files.iml" filepath="$PROJECT_DIR$/PE4_Messenger_With_Files/PE4_Messenger_With_Files.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PE5_Chat_With_Files/PE5_Chat_With_Files.iml" filepath="$PROJECT_DIR$/PE5_Chat_With_Files/PE5_Chat_With_Files.iml" />
     </modules>
   </component>
 </project>
