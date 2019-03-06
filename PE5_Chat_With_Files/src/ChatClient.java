@@ -1,3 +1,5 @@
+import com.sun.security.ntlm.Server;
+
 import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.ServerSocket;
@@ -12,6 +14,9 @@ public class ChatClient {
     private PrintWriter output;
     private BufferedReader input;
     private BufferedReader stdIn;
+
+    private DataInputStream dataInput;
+    private DataOutputStream dataOutput;
 
     private ChatClient(String listening_port, String server_port) {
         this.server_port = Integer.parseInt(server_port);
@@ -29,28 +34,54 @@ public class ChatClient {
         }
     }
 
-    private Thread startFileServer() {
-        return new Thread(() -> {
-            try {
-                server_socket = new ServerSocket(listening_port);
-                while (true) {
-                    Socket file_client_socket = server_socket.accept();
+//    private Thread startFileServer() {
+//        return new Thread(() -> {
+//            try {
+//                server_socket = new ServerSocket(listening_port);
+//                while (true) {
+//                    Socket file_client_socket = server_socket.accept();
+//
+//                    DataInputStream dataInput = new DataInputStream(file_client_socket.getInputStream());
+//
+//                    String file_name = dataInput.readUTF();
+//                    FileOutputStream file_output = new FileOutputStream(file_name);
+//
+//                    byte[] buffer = new byte[1500];
+//                    int number_read;
+//                    while ((number_read = dataInput.read(buffer)) != -1) {
+//                        file_output.write(buffer, 0, number_read);
+//                    }
+//                    file_output.close();
+//                    file_client_socket.close();
+//                }
+//            } catch (IOException e) {}
+//        });
+//    }
 
-                    DataInputStream dataInput = new DataInputStream(file_client_socket.getInputStream());
+    void writeFiles() {
+        try {
+            ServerSocket file_server = new ServerSocket(listening_port);
+            while (true) {
+                Socket file_socket = file_server.accept();
 
-                    String file_name = dataInput.readUTF();
-                    FileOutputStream file_output = new FileOutputStream(file_name);
+                dataInput = new DataInputStream(file_socket.getInputStream());
+                dataOutput = new DataOutputStream(file_socket.getOutputStream());
 
-                    byte[] buffer = new byte[1500];
-                    int number_read;
-                    while ((number_read = dataInput.read(buffer)) != -1) {
-                        file_output.write(buffer, 0, number_read);
-                    }
-                    file_output.close();
-                    file_client_socket.close();
+                String file_name = dataInput.readUTF();
+                FileOutputStream file_output = new FileOutputStream(file_name);
+
+                byte[] buffer = new byte[1500];
+                int number_read;
+                while ((number_read = dataInput.read(buffer)) != -1) {
+                    file_output.write(buffer, 0, number_read);
                 }
-            } catch (IOException e) {}
-        });
+                file_output.close();
+                file_socket.close();
+
+            }
+        } catch (IOException e) {
+            // ignore
+        }
     }
 
     void read() {
@@ -63,8 +94,9 @@ public class ChatClient {
                         System.out.println(userMessage);
                         break;
                     case "f":
-                        String[] fileInfo = input.readLine().split(":");
-                        Thread read_files = new Thread(() -> readFiles(fileInfo[0], Integer.parseInt(fileInfo[2])));
+                        String file_name = input.readLine();
+                        String file_port = input.readLine();
+                        Thread read_files = new Thread(() -> readFiles(file_name, Integer.parseInt(file_port);
                         read_files.start();
                         break;
                     case "x":
@@ -165,9 +197,10 @@ public class ChatClient {
             System.out.println("\tChatClient -l <listening port> -p <server port>");
         } else {
             ChatClient c = new ChatClient(args[1], args[3]);
-            c.startFileServer().start();
+//            c.startFileServer().start();
             c.startClient();
 
+            Thread writeFiles = new Thread(() -> c.writeFiles());
 
             Thread read = new Thread(() -> c.read());
             read.start();
