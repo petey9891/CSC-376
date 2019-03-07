@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bcde64e-dd64-43c1-807e-12f1b26c553b" name="Default Changelist" comment="">
+    <list default="true" id="0bcde64e-dd64-43c1-807e-12f1b26c553b" name="Default Changelist" comment="working on PE5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +42,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2746" />
+          <entry key="java" value="2747" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2746" />
+          <entry key="JAVA" value="2747" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -66,8 +68,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="794">
-                  <caret line="166" column="51" lean-forward="true" selection-start-line="166" selection-start-column="51" selection-end-line="166" selection-end-column="51" />
+                <state relative-caret-position="140">
+                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -79,11 +81,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="834">
-                  <caret line="173" column="16" lean-forward="true" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
+                <state>
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -91,7 +92,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="540">
@@ -152,8 +153,8 @@
         <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/server/wee.txt" />
         <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java" />
         <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java" />
-        <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" />
         <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java" />
+        <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" />
         <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java" />
       </list>
     </option>
@@ -184,6 +185,11 @@
             <path>
               <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
@@ -252,7 +258,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551932434117" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551933206648" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/PE5_Chat_With_Files/client2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -449,7 +455,7 @@
       <workItem from="1550775182036" duration="10211000" />
       <workItem from="1551816276957" duration="79000" />
       <workItem from="1551816742189" duration="11006000" />
-      <workItem from="1551923029906" duration="4968000" />
+      <workItem from="1551923029906" duration="5759000" />
     </task>
     <task id="LOCAL-00001" summary="changed file name">
       <created>1547316273895</created>
@@ -500,17 +506,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550698065469</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="working on PE5">
+      <created>1551932486755</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1551932486756</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76692000" />
+    <option name="totallyTimeSpent" value="77483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18084261" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18084261" />
       <window_info id="Structure" order="1" weight="0.24904214" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -524,7 +537,7 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49962208" weight="0.3673947" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3127925" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3127925" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50037795" side_tool="true" weight="0.2722309" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.16556291" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32980132" />
@@ -582,7 +595,8 @@
     <MESSAGE value="semi working version of PE3" />
     <MESSAGE value="finished PE3; added name" />
     <MESSAGE value="working on PE4" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on PE4" />
+    <MESSAGE value="working on PE5" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on PE5" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/PE1_Programming_Input/src/InputProgram.java">
@@ -657,16 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="834">
-          <caret line="173" column="16" lean-forward="true" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -681,10 +685,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="166" column="51" lean-forward="true" selection-start-line="166" selection-start-column="51" selection-end-line="166" selection-end-column="51" />
+        <state relative-caret-position="140">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
