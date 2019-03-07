@@ -7,28 +7,25 @@ import java.net.Socket;
  */
 
 class ClientConnection {
-    private String name;
-    private int listening_port;
     private Socket sock;
+    private String name;
 
-    ClientConnection(String name, String port, Socket sock) {
-        this.name = name;
-        this.listening_port = Integer.parseInt(port);
+    ClientConnection(Socket sock) {
         this.sock = sock;
     }
-
-    public String getName() { return name; }
-
-    public int getListeningPort() { return listening_port; }
 
     void write(String message) throws IOException {
         PrintWriter output = getOutputStream();
         output.println(message);
     }
 
-    void writeUtf(String message) throws IOException {
-        DataOutputStream output = getDataOutputStream();
-        output.writeUTF(message);
+    String getName() throws Exception {
+        if (name == null) throw new Exception("Name not provided");
+        return this.name;
+    }
+
+    void setName(String name) {
+        this.name = name;
     }
 
     BufferedReader getInputStream() throws  IOException {
@@ -37,10 +34,5 @@ class ClientConnection {
 
     private PrintWriter getOutputStream() throws IOException {
         return new PrintWriter(sock.getOutputStream(), true);
-    }
-
-    private DataOutputStream getDataOutputStream() throws IOException {
-        return new DataOutputStream(sock.getOutputStream());
-
     }
 }
