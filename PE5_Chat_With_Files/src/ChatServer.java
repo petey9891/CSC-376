@@ -1,86 +1,79 @@
-import com.sun.security.ntlm.Client;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * Andrew Peterson
  * CSC 376
  */
+
 public class ChatServer {
     private int port;
-    private ServerSocket server_socket;
-    private ArrayList<ClientConnection> clientConnections;
 
+    private HashMap<Socket, PrintWriter> connectedSockets;
+    private HashMap<String, Integer> portMap;
 
     private ChatServer(int port) {
         this.port = port;
-        this.clientConnections = new ArrayList<>();
+        this.connectedSockets = new HashMap<>();
+        this.portMap = new HashMap<>();
     }
 
     private void startServer() throws Exception {
         if (port == -1) throw new Exception("Port is not defined");
         try {
-            server_socket = new ServerSocket(port);
+            ServerSocket server_socket = new ServerSocket(port);
             while(true) {
                 Socket client_socket = server_socket.accept();
-                newClientConnection(client_socket).start();
+                PrintWriter output = new PrintWriter(client_socket.getOutputStream(), true);
+                connectedSockets.put(client_socket, output);
+                Thread read = new Thread(() -> read(client_socket));
+                read.start();
             }
         } catch (IOException e) {
             System.err.println("[ChatServer:startServer()]: " + e.getMessage());
         }
     }
 
-    private Thread newClientConnection(Socket client_socket) {
-        return new Thread(() -> {
-            try {
-                BufferedReader input = new BufferedReader(new InputStreamReader(client_socket.getInputStream()));
-                String[] nameAndPort = input.readLine().split(":");
-                ClientConnection client_connection = new ClientConnection(nameAndPort[0], nameAndPort[1], client_socket);
-                clientConnections.add(client_connection);
-                Thread read = new Thread(() -> read(client_connection));
-                read.start();
-            } catch (IOException e) {
-                // ignore
-            }
-        });
-    }
-
-    private void read(ClientConnection client) {
+    private void read(Socket client_socket) {
         try {
-            BufferedReader input = client.getInputStream();
+            BufferedReader input = new BufferedReader(new InputStreamReader(client_socket.getInputStream()));
+
+            connectedSockets.get(client_socket).println("Please enter your name: ");
+            String name = input.readLine();
+            int port = Integer.parseInt(input.readLine());
+            portMap.put(name, port);
+
             String message;
             while ((message = input.readLine()) != null) {
-                switch (message) {
-                    case "m":
-                        sendToAll(client.getName(), input.readLine(), message);
-                        break;
-                    case "f":
-                        String fileOwner = input.readLine();
-                        String fileName = input.readLine();
-                        for (ClientConnection c : clientConnections) {
-                            if (c.getName().equals(fileOwner)) {
-                                c.write(message);
-                                c.write(fileName + ":" + fileOwner + ":" + client.getListeningPort());
-                            }
-                        }
-                        break;
+                if (message.equals("f")) {
+                    String file_owner = input.readLine();
+                    String file_name = input.readLine();
+                    connectedSockets.get(client_socket).println(message);
+                    connectedSockets.get(client_socket).println(file_name);
+                    connectedSockets.get(client_socket).println(portMap.get(file_owner));
+                } else {
+                    sendToAll(client_socket, name, message);
                 }
             }
-        } catch (IOException e) {};
+            portMap.remove(name);
+            connectedSockets.remove(client_socket);
+        } catch (IOException e) {
+            // ignore
+        } catch (Exception e) {
+            // ignore
+        }
     }
 
-    private void sendToAll(String name, String message, String command) {
-        for (ClientConnection c : clientConnections) {
-            if (!c.getName().equals(name)) {
-                try {
-                    c.write(command);
-                    c.write(name + ": " + message);
-                } catch (IOException e) {}
+    private void sendToAll(Socket client_socket, String name, String message) {
+        for (Entry<Socket, PrintWriter> entry : connectedSockets.entrySet()) {
+            if (!(entry.getKey() == client_socket)) {
+                entry.getValue().println(name + ": " + message);
             }
         }
     }
