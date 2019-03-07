@@ -61,15 +61,19 @@ public class ChatServer {
                     case "m":
                         for (Map.Entry<Socket, PrintWriter> entry : socketMap.entrySet()) {
                             if (entry.getKey() != client_socket) {
-                                entry.getValue().println(name + ": " + message);
+                                entry.getValue().println(message);
+                                entry.getValue().println(name + ": " + input.readLine());
                             }
                         }
                         break;
                     case "f":
                         String file_owner = input.readLine();
                         String file_name = input.readLine();
-                        socketMap.get(client_socket).println(file_name);
-                        socketMap.get(client_socket).println(portMap.get(file_owner));
+                        if (portMap.get(file_owner) != null) {
+                            socketMap.get(client_socket).println(message);
+                            socketMap.get(client_socket).println(file_name);
+                            socketMap.get(client_socket).println(portMap.get(file_owner));
+                        }
                         break;
                 }
             }
@@ -78,78 +82,7 @@ public class ChatServer {
         } catch (IOException e) {
             // ignore
         }
-//        try {
-//            BufferedReader input = client.getInputStream();
-//            String message;
-//            while ((message = input.readLine()) != null) {
-//                switch (message) {
-//                    case "m":
-//                        sendToAll(client.getName(), input.readLine(), message);
-//                        break;
-//                    case "f":
-//                        String fileOwner = input.readLine();
-//                        String fileName = input.readLine();
-//                        for (ClientConnection c : clientConnections) {
-//                            if (c.getName().equals(fileOwner)) {
-//                                c.write(message);
-//                                c.write(fileName + ":" + fileOwner + ":" + client.getListeningPort());
-//                            }
-//                        }
-//                        break;
-//                }
-//            }
-//        } catch (IOException e) {};
     }
-
-//    private Thread newClientConnection(Socket client_socket) {
-//        return new Thread(() -> {
-//            try {
-//                BufferedReader input = new BufferedReader(new InputStreamReader(client_socket.getInputStream()));
-//                String[] nameAndPort = input.readLine().split(":");
-//                ClientConnection client_connection = new ClientConnection(nameAndPort[0], nameAndPort[1], client_socket);
-//                clientConnections.add(client_connection);
-//                Thread read = new Thread(() -> read(client_connection));
-//                read.start();
-//            } catch (IOException e) {
-//                // ignore
-//            }
-//        });
-//    }
-
-//    private void read(ClientConnection client) {
-//        try {
-//            BufferedReader input = client.getInputStream();
-//            String message;
-//            while ((message = input.readLine()) != null) {
-//                switch (message) {
-//                    case "m":
-//                        sendToAll(client.getName(), input.readLine(), message);
-//                        break;
-//                    case "f":
-//                        String fileOwner = input.readLine();
-//                        String fileName = input.readLine();
-//                        for (ClientConnection c : clientConnections) {
-//                            if (c.getName().equals(fileOwner)) {
-//                                c.write(message);
-//                                c.write(fileName + ":" + fileOwner + ":" + client.getListeningPort());
-//                            }
-//                        }
-//                        break;
-//                }
-//            }
-//        } catch (IOException e) {};
-//    }
-//
-//    private void sendToAll(String name, String message, String command) {
-//        for (ClientConnection c : clientConnections) {
-//            if (!c.getName().equals(name)) {
-//                try {
-//                    c.write(command);
-//                    c.write(name + ": " + message);
-//                } catch (IOException e) {}
-//            }
-//        }
-//    }
 
     public static void main(String[] args) {
         if (args.length != 1) {

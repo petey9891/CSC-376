@@ -6,17 +6,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ChatClient {
-    private Socket sock;
     private ServerSocket server_socket;
+    private Socket sock;
     private int server_port;
     private int listening_port;
 
     private PrintWriter output;
     private BufferedReader input;
     private BufferedReader stdIn;
-
-    private DataInputStream dataInput;
-    private DataOutputStream dataOutput;
 
     private ChatClient(String listening_port, String server_port) {
         this.server_port = Integer.parseInt(server_port);
@@ -34,56 +31,6 @@ public class ChatClient {
         }
     }
 
-//    private Thread startFileServer() {
-//        return new Thread(() -> {
-//            try {
-//                server_socket = new ServerSocket(listening_port);
-//                while (true) {
-//                    Socket file_client_socket = server_socket.accept();
-//
-//                    DataInputStream dataInput = new DataInputStream(file_client_socket.getInputStream());
-//
-//                    String file_name = dataInput.readUTF();
-//                    FileOutputStream file_output = new FileOutputStream(file_name);
-//
-//                    byte[] buffer = new byte[1500];
-//                    int number_read;
-//                    while ((number_read = dataInput.read(buffer)) != -1) {
-//                        file_output.write(buffer, 0, number_read);
-//                    }
-//                    file_output.close();
-//                    file_client_socket.close();
-//                }
-//            } catch (IOException e) {}
-//        });
-//    }
-
-    void writeFiles() {
-        try {
-            ServerSocket file_server = new ServerSocket(listening_port);
-            while (true) {
-                Socket file_socket = file_server.accept();
-
-                dataInput = new DataInputStream(file_socket.getInputStream());
-                dataOutput = new DataOutputStream(file_socket.getOutputStream());
-
-                String file_name = dataInput.readUTF();
-                FileOutputStream file_output = new FileOutputStream(file_name);
-
-                byte[] buffer = new byte[1500];
-                int number_read;
-                while ((number_read = dataInput.read(buffer)) != -1) {
-                    file_output.write(buffer, 0, number_read);
-                }
-                file_output.close();
-                file_socket.close();
-
-            }
-        } catch (IOException e) {
-            // ignore
-        }
-    }
-
     void read() {
         try {
             String message;
@@ -96,7 +43,7 @@ public class ChatClient {
                     case "f":
                         String file_name = input.readLine();
                         String file_port = input.readLine();
-                        Thread read_files = new Thread(() -> readFiles(file_name, Integer.parseInt(file_port);
+                        Thread read_files = new Thread(() -> readFiles(file_name, Integer.parseInt(file_port)));
                         read_files.start();
                         break;
                     case "x":
@@ -113,7 +60,8 @@ public class ChatClient {
         try {
             System.out.println("Please enter your name: ");
             String user_name = stdIn.readLine();
-            output.println(user_name + ":" + listening_port);
+            output.println(user_name);
+            output.println(listening_port);
             printMessage();
             String message;
             while ((message  = stdIn.readLine()) != null) {
@@ -133,7 +81,7 @@ public class ChatClient {
                         String file_name = stdIn.readLine();
                         output.println(file_name);
                         printMessage();
-                        break;
+                    break;
                     case "x":
                         closeClient();
                         break;
@@ -158,28 +106,56 @@ public class ChatClient {
 
     private void readFiles(String file_name, int client_port) {
         try {
-            Socket file_client_socket = new Socket("localhost", client_port);
+            Socket file_socket = new Socket("localhost", client_port);
+            DataInputStream input = new DataInputStream(file_socket.getInputStream());
+            DataOutputStream output = new DataOutputStream(file_socket.getOutputStream());
 
-            DataOutputStream dataOutput = new DataOutputStream(file_client_socket.getOutputStream());
+            output.writeUTF(file_name);
 
-            dataOutput.writeUTF(file_name);
-            File file = new File(file_name);
+            FileOutputStream fileOut = new FileOutputStream(file_name);
 
-            if (!file.exists() || !file.canRead() || file.length() == 0) {
-                file_client_socket.close();
-                return;
+            int numRead;
+            byte [] buffer = new byte[1500];
+            while((numRead = input.read(buffer)) != -1) {
+                fileOut.write(buffer, 0, numRead);
             }
+            fileOut.close();
+            file_socket.close();
+        }
+        catch (Exception e){
+            // ignore
+        };
+    }
 
-            FileInputStream file_input = new FileInputStream(file);
-            int number_read;
-            byte[] buffer = new byte[1500];
-            while ((number_read = file_input.read(buffer)) != -1) {
-                dataOutput.write(buffer, 0, number_read);
+
+    private void writeFiles() {
+        try {
+            server_socket = new ServerSocket(listening_port);
+            while (true) {
+                Socket file_socket = server_socket.accept();
+
+                DataInputStream input = new DataInputStream(file_socket.getInputStream());
+                DataOutputStream output = new DataOutputStream(file_socket.getOutputStream());
+
+                String fileName = input.readUTF();
+                File file = new File(fileName);
+                //if file doesn't exist
+                if(!file.exists() || !file.canRead() || file.length() == 0) {
+                    file_socket.close();
+                    continue;
+                }
+
+                FileInputStream fileInput = new FileInputStream(file);
+                int numRead;
+                byte [] buffer = new byte[1500];
+                while((numRead = fileInput.read(buffer)) != -1) {
+                    output.write(buffer, 0, numRead);
+                }
+                fileInput.close();
+                file_socket.close();
             }
-            file_input.close();
-            file_client_socket.close();
-
-        } catch (Exception e) {
+        }
+        catch(Exception e) {
             // ignore
         }
     }
@@ -197,10 +173,10 @@ public class ChatClient {
             System.out.println("\tChatClient -l <listening port> -p <server port>");
         } else {
             ChatClient c = new ChatClient(args[1], args[3]);
-//            c.startFileServer().start();
             c.startClient();
 
             Thread writeFiles = new Thread(() -> c.writeFiles());
+            writeFiles.start();
 
             Thread read = new Thread(() -> c.read());
             read.start();
