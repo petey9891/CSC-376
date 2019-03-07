@@ -5,6 +5,7 @@ import java.net.Socket;
 public class ChatClient {
     private ServerSocket server_socket;
     private Socket sock;
+
     private int server_port;
     private int listening_port;
 
@@ -59,7 +60,6 @@ public class ChatClient {
 
             String message;
             while ((message  = stdIn.readLine()) != null) {
-                output.println(message);
                 switch (message) {
                     case "m":
                         System.out.println("Enter your message:");
@@ -67,6 +67,8 @@ public class ChatClient {
                         output.println(userMessage);
                         break;
                     case "f":
+                        output.println(message);    // sends f command
+
                         System.out.println("Who owns the file?");
                         String file_owner = stdIn.readLine();
 
@@ -135,7 +137,6 @@ public class ChatClient {
                 String fileName = dataInput.readUTF();
                 File file = new File(fileName);
 
-                //if file doesn't exist
                 if(!file.exists() || !file.canRead() || file.length() == 0) {
                     file_socket.close();
                     continue;
