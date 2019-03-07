@@ -57,11 +57,9 @@ public class ChatServer {
 //    private void read(Socket client_socket) {
     private void read(ClientConnection client) {
         try {
-//            BufferedReader input = new BufferedReader(new InputStreamReader(client_socket.getInputStream()));
             BufferedReader input = client.getInputStream();
             String message;
 
-//            socketMap.get(client_socket).println("Please enter your name: ");
             client.write("Please enter your name: ");
             String name = input.readLine();
             int port = Integer.parseInt(input.readLine());
@@ -72,7 +70,7 @@ public class ChatServer {
             while ((message = input.readLine()) != null) {
                 switch (message) {
                     case "m":
-                        sendToAll(client.getName(), input.readLine(), message);
+                        sendToAll(client.getName(), input.readLine());
                         break;
                     case "f":
                         String file_owner = input.readLine();
@@ -81,15 +79,12 @@ public class ChatServer {
                             client.write(message);
                             client.write(file_name);
                             client.write(portMap.get(file_owner).toString());
-//                            socketMap.get(client).println(message);
-//                            socketMap.get(client).println(file_name);
-//                            socketMap.get(client).println(portMap.get(file_owner));
                         }
                         break;
                 }
             }
-//            portMap.remove(name);
-//            socketMap.remove(client_socket);
+            portMap.remove(name);
+            clientConnections.remove(client);
         } catch (IOException e) {
             // ignore
         } catch (Exception e) {
@@ -157,13 +152,10 @@ public class ChatServer {
 //        } catch (IOException e) {};
 //    }
 //
-    private void sendToAll(String name, String message, String command) throws Exception {
+    private void sendToAll(String name, String message) throws Exception {
         for (ClientConnection c : clientConnections) {
             if (!c.getName().equals(name)) {
-                try {
-                    c.write(command);
-                    c.write(name + ": " + message);
-                } catch (IOException e) {}
+                c.write(name + ": " + message);
             }
         }
     }
