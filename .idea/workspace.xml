@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bcde64e-dd64-43c1-807e-12f1b26c553b" name="Default Changelist" comment="working on PE5">
+    <list default="true" id="0bcde64e-dd64-43c1-807e-12f1b26c553b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PE5_Chat_With_Files/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PE5_Chat_With_Files/ChatClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PE5_Chat_With_Files/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PE5_Chat_With_Files/ChatServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PE5_Chat_With_Files/ClientConnection.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,32 +27,52 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-718">
-              <caret line="108" selection-start-line="108" selection-end-line="108" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-24">
-              <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1020">
+                  <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-799">
+                  <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1840">
+                  <caret line="44" column="56" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -100,8 +116,8 @@
         <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/src/MessengerWithFiles.java" />
         <option value="$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java" />
         <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java" />
-        <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" />
         <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java" />
+        <option value="$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java" />
       </list>
     </option>
   </component>
@@ -118,8 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,12 +144,13 @@
             <path>
               <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="PE3_Chat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSC-376" type="462c0819:PsiDirectoryNode" />
               <item name="PE3_Chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CSC-376" type="b2602c69:ProjectViewProjectNode" />
@@ -163,13 +178,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551940826862" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552325682095" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/PE5_Chat_With_Files/client2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -369,6 +385,7 @@
       <workItem from="1551816276957" duration="79000" />
       <workItem from="1551816742189" duration="11006000" />
       <workItem from="1551923029906" duration="5759000" />
+      <workItem from="1552323799293" duration="2323000" />
     </task>
     <task id="LOCAL-00001" summary="changed file name">
       <created>1547316273895</created>
@@ -426,17 +443,24 @@
       <option name="project" value="LOCAL" />
       <updated>1551932486756</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="solution to PE5">
+      <created>1551940979620</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1551940979620</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81766000" />
+    <option name="totallyTimeSpent" value="84268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18442933" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18745276" />
       <window_info id="Structure" order="1" weight="0.24904214" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -450,7 +474,7 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49962208" weight="0.3673947" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.34172186" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.20794702" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50037795" side_tool="true" weight="0.2722309" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.16556291" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32980132" />
@@ -520,7 +544,8 @@
     <MESSAGE value="finished PE3; added name" />
     <MESSAGE value="working on PE4" />
     <MESSAGE value="working on PE5" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on PE5" />
+    <MESSAGE value="solution to PE5" />
+    <option name="LAST_COMMIT_MESSAGE" value="solution to PE5" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/PE1_Programming_Input/src/InputProgram.java">
@@ -568,33 +593,22 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/io/DataOutputStream.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/System.java" />
-    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="12" column="57" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/client2/one-liners.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Integer.java" />
-    <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java">
+    <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ClientConnection.java" />
+    <entry file="file://$PROJECT_DIR$/PE3_Chat/src/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-305">
+          <caret line="12" column="57" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PE4_Messenger_With_Files/src/Messenger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="148" column="4" selection-start-line="148" selection-start-column="4" selection-end-line="156" selection-end-column="43" />
+        <state relative-caret-position="81">
+          <caret line="158" column="31" lean-forward="true" selection-start-line="158" selection-start-column="31" selection-end-line="158" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -603,8 +617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
+        <state relative-caret-position="1020">
+          <caret line="60" column="64" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -613,8 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PE5_Chat_With_Files/src/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-718">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        <state relative-caret-position="-1840">
+          <caret line="44" column="56" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

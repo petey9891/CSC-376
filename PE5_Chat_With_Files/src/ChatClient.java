@@ -2,6 +2,11 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Andrew Peterson
+ * CSC 376
+ */
+
 public class ChatClient {
     private ServerSocket server_socket;
     private Socket sock;
@@ -118,8 +123,7 @@ public class ChatClient {
             }
             fileOut.close();
             file_socket.close();
-        }
-        catch (Exception e){
+        } catch (Exception e){
             // ignore
         };
     }
@@ -151,8 +155,7 @@ public class ChatClient {
                 fileInput.close();
                 file_socket.close();
             }
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             // ignore
         }
     }
