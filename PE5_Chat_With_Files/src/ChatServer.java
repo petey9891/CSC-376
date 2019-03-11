@@ -43,8 +43,9 @@ public class ChatServer {
     private void read(Socket client_socket) {
         try {
             BufferedReader input = new BufferedReader(new InputStreamReader(client_socket.getInputStream()));
+            PrintWriter output = connectedSockets.get(client_socket);
 
-            connectedSockets.get(client_socket).println("Please enter your name: ");
+            output.println("Please enter your name: ");
             String name = input.readLine();
             int port = Integer.parseInt(input.readLine());
             portMap.put(name, port);
@@ -54,9 +55,11 @@ public class ChatServer {
                 if (message.equals("f")) {
                     String file_owner = input.readLine();
                     String file_name = input.readLine();
-                    connectedSockets.get(client_socket).println(message);
-                    connectedSockets.get(client_socket).println(file_name);
-                    connectedSockets.get(client_socket).println(portMap.get(file_owner));
+                    if (portMap.get(file_owner) != null) {
+                        output.println(message);
+                        output.println(file_name);
+                        output.println(portMap.get(file_owner));
+                    }
                 } else {
                     sendToAll(client_socket, name, message);
                 }
@@ -64,8 +67,6 @@ public class ChatServer {
             portMap.remove(name);
             connectedSockets.remove(client_socket);
         } catch (IOException e) {
-            // ignore
-        } catch (Exception e) {
             // ignore
         }
     }
